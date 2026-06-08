@@ -1,59 +1,152 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Multan Mango Treasures 🥭 (Mango Marketplace)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A professional E-commerce web application built with **Laravel** designed to connect the local mango growers of Multan directly with retail buyers and customers. The platform streamlines order placement, voucher discounts, administrative management, and grower verification.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Key Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🛒 Customer & Checkout Experience
+* **Dynamic Product Catalog:** Showcases premium Multan mango varieties (e.g., Organic Chaunsa) direct from the orchard with weight-batch packaging.
+* **Smart Order Summary:** Real-time billing details including Subtotal, Cargo Care Fee, and Voucher Discounts.
+* **Voucher Coupon System:** Fully functional promotional discount logic (e.g., Applying `MANGO10` instantly recalculates the total amount).
+* **Location Pinning:** Integrated map functionality allowing customers to automatically detect or manually pin their exact coordinates for fast delivery riders.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛡️ Administrative Dashboard (`AdminController`)
+* **Financial Analytics:** Tracks total revenue earned through marketplace sales.
+* **Grower Management:** Monitors and approves active grower registrations.
+* **Secure Payment Verification:** Back-end support for verifying grower setup and manual/digital payment milestones via JazzCash.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Technical Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Backend:** PHP (Laravel Framework)
+* **Frontend:** Blade Templating Engine, Tailwind CSS / Custom CSS, JavaScript (Vanilla JS for interactive elements)
+* **Database:** MySQL / SQL (Relational schema for managing users, farms, products, vouchers, and orders)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📦 Database Architecture Highlights
 
-### Premium Partners
+The application relies on a structured relational database layout managing essential entities:
+* **Growers & Farms:** Tracks verified farm listings in Multan.
+* **Products:** Handles mango categories, pricing per KG, and inventory availability.
+* **Orders & Transactions:** Manages checkout details, customer addresses, WhatsApp contact info, and pinned geolocations.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🔧 Installation & Setup
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/MuteebaKhan/multan_mango_marketplace.git](https://github.com/MuteebaKhan/multan_mango_marketplace.git)
+2. # Multan Mango Treasures 🥭 (Mango Marketplace)
 
-## Code of Conduct
+A professional E-commerce web application built with **Laravel** designed to connect the local mango growers of Multan directly with retail buyers and customers. The platform streamlines order placement, voucher discounts, administrative management, and grower verification.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🚀 Key Features
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🛒 Customer & Checkout Experience
+* **Dynamic Product Catalog:** Showcases premium Multan mango varieties (e.g., Organic Chaunsa) direct from the orchard with weight-batch packaging.
+* **Smart Order Summary:** Real-time billing details including Subtotal, Cargo Care Fee, and Voucher Discounts.
+* **Voucher Coupon System:** Fully functional promotional discount logic (e.g., Applying `MANGO10` instantly recalculates the total amount).
+* **Location Pinning:** Integrated map functionality allowing customers to automatically detect or manually pin their exact coordinates for fast delivery riders.
 
-## License
+### 🛡️ Administrative Dashboard (`AdminController`)
+* **Financial Analytics:** Tracks total revenue earned through marketplace sales.
+* **Grower Management:** Monitors and approves active grower registrations.
+* **Secure Payment Verification:** Back-end support for verifying grower setup and manual/digital payment milestones via JazzCash.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🛠️ Technical Stack
+
+* **Backend:** PHP (Laravel Framework)
+* **Frontend:** Blade Templating Engine, Tailwind CSS / Custom CSS, JavaScript (Vanilla JS for interactive elements)
+* **Database:** MySQL / SQL (Relational schema for managing users, farms, products, vouchers, and orders)
+
+---
+
+## 📦 Database Architecture Highlights
+
+The application relies on a structured relational database layout managing essential entities:
+* **Growers & Farms:** Tracks verified farm listings in Multan.
+* **Products:** Handles mango categories, pricing per KG, and inventory availability.
+* **Orders & Transactions:** Manages checkout details, customer addresses, WhatsApp contact info, and pinned geolocations.
+
+---
+
+## 🔧 Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/MuteebaKhan/multan_mango_marketplace.git](https://github.com/MuteebaKhan/multan_mango_marketplace.git)
+
+2. # Multan Mango Treasures 🥭 (Mango Marketplace)
+
+A professional E-commerce web application built with **Laravel** designed to connect the local mango growers of Multan directly with retail buyers and customers. The platform streamlines order placement, voucher discounts, administrative management, and grower verification.
+
+---
+
+## 🚀 Key Features
+
+### 🛒 Customer & Checkout Experience
+* **Dynamic Product Catalog:** Showcases premium Multan mango varieties (e.g., Organic Chaunsa) direct from the orchard with weight-batch packaging.
+* **Smart Order Summary:** Real-time billing details including Subtotal, Cargo Care Fee, and Voucher Discounts.
+* **Voucher Coupon System:** Fully functional promotional discount logic (e.g., Applying `MANGO10` instantly recalculates the total amount).
+* **Location Pinning:** Integrated map functionality allowing customers to automatically detect or manually pin their exact coordinates for fast delivery riders.
+
+### 🛡️ Administrative Dashboard (`AdminController`)
+* **Financial Analytics:** Tracks total revenue earned through marketplace sales.
+* **Grower Management:** Monitors and approves active grower registrations.
+* **Secure Payment Verification:** Back-end support for verifying grower setup and manual/digital payment milestones via JazzCash.
+
+---
+
+## 🛠️ Technical Stack
+
+* **Backend:** PHP (Laravel Framework)
+* **Frontend:** Blade Templating Engine, Tailwind CSS / Custom CSS, JavaScript (Vanilla JS for interactive elements)
+* **Database:** MySQL / SQL (Relational schema for managing users, farms, products, vouchers, and orders)
+
+---
+
+## 📦 Database Architecture Highlights
+
+The application relies on a structured relational database layout managing essential entities:
+* **Growers & Farms:** Tracks verified farm listings in Multan.
+* **Products:** Handles mango categories, pricing per KG, and inventory availability.
+* **Orders & Transactions:** Manages checkout details, customer addresses, WhatsApp contact info, and pinned geolocations.
+
+---
+
+## 🔧 Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/MuteebaKhan/multan_mango_marketplace.git](https://github.com/MuteebaKhan/multan_mango_marketplace.git)
+2. Install dependancies
+   composer install
+   npm install && npm run dev
+3. Environment Setup:
+
+    Duplicate .env.example to .env
+    
+    Configure your database credentials (DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+    
+    Generate application key:
+    php artisan key:generate
+4. Run Migrations & Seeders:
+    php artisan migrate --seed
+5. Start the local server:
+
+Bash
+php artisan serve
+---
+
+## 📝 Demo & Contributions
+
+For visual documentation and interface walk-throughs, please refer to the screenshots and dashboard logs available in the [Issues Section](https://github.com/MuteebaKhan/multan_mango_marketplace/issues/1).
