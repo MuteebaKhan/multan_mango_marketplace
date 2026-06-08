@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbf7; }
@@ -96,9 +97,22 @@
             <main class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6">
                 
                 @if(session('success'))
-                    <div class="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-xl flex items-center gap-2 shadow-xs">
-                        <i class="fa-solid fa-circle-check text-emerald-600 text-sm"></i> {{ session('success') }}
-                    </div>
+                    <script>
+                        Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true,
+                            background: '#f0fdf4',
+                            color: '#166534',
+                            iconColor: '#166534'
+                        }).fire({
+                            icon: 'success',
+                            title: 'Verified Successfully',
+                            text: "{!! session('success') !!}"
+                        });
+                    </script>
                 @endif
 
                 <div>
@@ -107,20 +121,19 @@
                 </div>
 
                 <div class="bg-gradient-to-br from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-lg">
-    <div class="flex justify-between items-center">
-        <div>
-            <p class="text-sm font-medium opacity-80">Platform Earnings (Net Profit)</p>
-            <h3 class="text-2xl font-bold mt-1">Rs. {{ number_format($platformEarnings, 2) }}</h3>
-        </div>
-        <div class="p-3 bg-white/20 rounded-lg">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-        </div>
-    </div>
-    <p class="text-xs mt-4 opacity-90">✨ Rs. 300 per successful order</p>
-</div>
-
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-sm font-medium opacity-80">Platform Earnings (Net Profit)</p>
+                            <h3 class="text-2xl font-bold mt-1">Rs. {{ number_format($platformEarnings, 2) }}</h3>
+                        </div>
+                        <div class="p-3 bg-white/20 rounded-lg">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-xs mt-4 opacity-90">✨ Rs. 300 per successful order</p>
+                </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs flex flex-col justify-between">
@@ -192,46 +205,46 @@
                                 </thead>
                                 <tbody class="divide-y divide-gray-50 text-xs">
                                 @forelse($pendingOrders as $order)
-    <tr class="hover:bg-gray-50/70 transition border-b border-gray-100">
-        <td class="py-4 px-5 font-mono font-bold text-gray-700">#{{ $order->id }}</td>
-        <td class="py-4 px-4 font-medium text-gray-800">
-            {{ $order->customer->name ?? 'Multan Customer' }}
-        </td>
-        <td class="py-4 px-4">
-            <span class="px-2 py-1 bg-amber-50 text-amber-700 rounded text-[10px] font-bold uppercase tracking-wider block w-max">
-                {{ $order->payment->payment_method ?? 'JazzCash' }}
-            </span>
-            @if($order->payment && $order->payment->transaction_id)
-                <p class="text-[11px] font-mono font-bold text-emerald-800 mt-1">
-                    TID: {{ $order->payment->transaction_id }}
-                </p>
-            @endif
-        </td>
-        <td class="py-4 px-4 font-bold text-[#1b3322] font-mono">Rs. {{ number_format($order->total_amount, 2) }}</td>
-        <td class="py-4 px-5 text-center">
-            <div class="flex items-center justify-center gap-3">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide bg-blue-50 text-blue-700">
-                    {{ $order->status }}
-                </span>
+                                    <tr class="hover:bg-gray-50/70 transition border-b border-gray-100">
+                                        <td class="py-4 px-5 font-mono font-bold text-gray-700">#{{ $order->id }}</td>
+                                        <td class="py-4 px-4 font-medium text-gray-800">
+                                            {{ $order->customer->name ?? 'Multan Customer' }}
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <span class="px-2 py-1 bg-amber-50 text-amber-700 rounded text-[10px] font-bold uppercase tracking-wider block w-max">
+                                                {{ $order->payment->payment_method ?? 'JazzCash' }}
+                                            </span>
+                                            @if($order->payment && $order->payment->transaction_id)
+                                                <p class="text-[11px] font-mono font-bold text-emerald-800 mt-1">
+                                                    TID: {{ $order->payment->transaction_id }}
+                                                </p>
+                                            @endif
+                                        </td>
+                                        <td class="py-4 px-4 font-bold text-[#1b3322] font-mono">Rs. {{ number_format($order->total_amount, 2) }}</td>
+                                        <td class="py-4 px-5 text-center">
+                                            <div class="flex items-center justify-center gap-3">
+                                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide bg-blue-50 text-blue-700">
+                                                    {{ $order->status }}
+                                                </span>
 
-                @if($order->status === 'pending')
-                    <form action="{{ route('admin.orders.verify-payment', $order->id) }}" method="POST" onsubmit="return confirm('Kia aap ne JazzCash system me is TID ko verify kar liya hai?')">
-                        @csrf
-                        <button type="submit" class="px-3 py-1.5 bg-[#1b3322] hover:bg-emerald-900 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow-sm transition">
-                            <i class="fa-solid fa-circle-check mr-1 text-amber-400"></i> Approve
-                        </button>
-                    </form>
-                @endif
-            </div>
-        </td>
-    </tr>
-@empty
-    <tr>
-        <td colspan="5" class="py-8 text-center text-gray-400 font-medium text-xs">
-            <i class="fa-solid fa-inbox block text-2xl mb-2 text-gray-300"></i> No orders found in database!
-        </td>
-    </tr>
-@endforelse
+                                                @if($order->status === 'pending')
+                                                    <form id="verify-form-{{ $order->id }}" action="{{ route('admin.orders.verify-payment', $order->id) }}" method="POST">
+                                                        @csrf
+                                                        <button type="button" onclick="confirmApproval('{{ $order->id }}')" class="px-3 py-1.5 bg-[#1b3322] hover:bg-emerald-900 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider shadow-sm transition">
+                                                            <i class="fa-solid fa-circle-check mr-1 text-amber-400"></i> Approve
+                                                        </button>
+                                                    </form>
+                                                @endif
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="py-8 text-center text-gray-400 font-medium text-xs">
+                                            <i class="fa-solid fa-inbox block text-2xl mb-2 text-gray-300"></i> No orders found in database!
+                                        </td>
+                                    </tr>
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -260,6 +273,38 @@
             </main>
         </div>
     </div>
+
+    <script>
+    function confirmApproval(orderId) {
+        const ToastConfirm = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: true,
+            showCancelButton: true,
+            timerProgressBar: false,
+            background: '#ffffff',
+            customClass: {
+                popup: 'shadow-xl rounded-xl border border-gray-100'
+            }
+        });
+
+        ToastConfirm.fire({
+            icon: 'question',
+            title: 'Verify Payment?',
+            text: 'Are you sure you want to approve this order?',
+            confirmButtonText: '✔ Yes',
+            cancelButtonText: '✖ No',
+            confirmButtonColor: '#1b3322', // Matching Dark Emerald Theme
+            cancelButtonColor: '#b91c1c',  // Red Accent
+            iconColor: '#d97706'           // Mango Orange/Gold color icon
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If admin accepts, programmatic form submission fires securely
+                document.getElementById('verify-form-' + orderId).submit();
+            }
+        });
+    }
+    </script>
 
 </body>
 </html>

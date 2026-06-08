@@ -125,7 +125,7 @@
                                     @empty
                                         <tr>
                                             <td colspan="6" class="py-8 text-center text-gray-400 font-medium">
-                                                <i class="fa-solid fa-ticket block text-2xl mb-2 text-gray-300"></i> Vault khali hai. Koi coupon nahi bana hua!
+                                                <i class="fa-solid fa-ticket block text-2xl mb-2 text-gray-300"></i> No Coupons Available! Create a new one.
                                             </td>
                                         </tr>
                                     @endforelse

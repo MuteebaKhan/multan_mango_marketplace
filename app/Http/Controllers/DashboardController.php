@@ -73,7 +73,7 @@ class DashboardController extends Controller
 
             // --- FILTER LOGIC (Tab click filter) ---
             if (request()->has('status') && request('status') !== 'all') {
-                // Agar user chalaki se url me status=pending likhe, tab bhi block ho jaye
+                // If user tries to access pending orders, block the access
                 if (request('status') === 'pending') {
                     abort(403, 'Unauthorized Action.');
                 }
@@ -95,7 +95,7 @@ class DashboardController extends Controller
 
             // --- DYNAMIC PERFORMANCE INSIGHTS CHARTS GENERATION ---
 
-            // 1. Line Chart Data: Monthly Sales Trend (Sirf 'Delivered' orders ki monthly kamai)
+            // 1. Line Chart Data: Monthly Sales Trend (Only 'Delivered' orders)
             $monthlySales = DB::table('order_items')
                 ->join('products', 'order_items.product_id', '=', 'products.id')
                 ->join('orders', 'order_items.order_id', '=', 'orders.id')
@@ -208,7 +208,7 @@ class DashboardController extends Controller
             if ($order->status === 'pending') {
                 return response()->json([
                     'success' => false,
-                    'message' => '🚫 Action Blocked! Is order ki payment abhi tak Admin se approve nahi hui.'
+                    'message' => '🚫 Action Blocked! Payment Not Approved Yet!'
                 ], 403);
             }
         }

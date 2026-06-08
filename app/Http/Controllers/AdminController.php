@@ -14,6 +14,8 @@ class AdminController extends Controller
     // 1. Executive Dashboard Overview Data
     public function index()
     {
+
+        
         // Total Revenue: Sirf delivered batches ya completed orders ki collection sum karein
         $totalRevenue = Order::whereIn('status', ['Delivered', 'shipped', 'delivered'])->sum('total_amount') ?? 0;
         
@@ -90,13 +92,13 @@ class AdminController extends Controller
             'is_active' => true, 
         ]);
 
-        return redirect()->back()->with('success', 'Naya Coupon successfully create ho gaya!');
+        return redirect()->back()->with('success', 'New Coupon Created Successfully!');
     }
 
     // 5. Delete Coupon Rule
     public function deleteCoupon(Coupon $coupon)
     {
         $coupon->delete();
-        return redirect()->back()->with('success', 'Coupon database se remove kar diya gaya!');
+        return redirect()->back()->with('success', 'Coupon Removed Successfully!');
     }
 }
